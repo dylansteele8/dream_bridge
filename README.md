@@ -1,35 +1,18 @@
-#dream_bridge
+Draggable Dual-View Slideshow
+=========
 
-A user-friendly Django 1.7 Starter Template with an organized file structure for team development.
+A draggable slideshow with two views: fullscreen and small carousel. In fullscreen view, a related content area can be viewed.
 
-## Installation
-1. Clone it ```git clone git@github.com:potay/django-starter.git```
-2. Run ```cd dream_bridge```
-3. Run ```python setup.py [PROJECT_NAME]```
-4. Delete setup.py file
-5. Replace this file with your readme.
-6. Start making awesome django web apps!
-7. Run the local test server: ```python runserver.py```
-8. Create new apps: ```python createapp.py [APP_NAME]```
+[Article on Codrops](http://tympanus.net/codrops/?p=19332)
 
-## Structure
-In this Django structure, all static and template files are stored in the root folder and not in their respective apps. This allows the frontend and backend process to be developed separately while still maintaining interdependence. Furthermore, this allows the namespace and structure of the template and static files to be more explicit and clear. All local development files, such as the database or log files, will be stored in the `tmp` folder and not be committed to git. The settings are now stored in multiple files for different environments, namely the production and development environment, where the development environment inherits from the product environment but makes the necessary changes for local development.
+[Demo](http://tympanus.net/Development/DraggableDualViewSlideshow/)
 
-### File Structure
-```
-dream_bridge/            - Main Project Folder
-  apps/                    - Contains all django apps
-  settings/                - Contains production and development settings files
-  prefixed_storage.py      - For storages plugin, if need be
-  ...
-static/                    - Contains all static files
-templates/                 - Contains all the dynamic template files
-tests/                     - Contains all the testing files
-tmp/                       - Contains local development environment files (e.g. database files, log files, etc.)
-createapp.py               - Run 'python createapp.py [APP_NAME]' to create an app following the file structure
-manage.py                  - Standard django management file
-runserver.py               - Run 'python runserver.py' to run a local test server. Does relevant checks and updates db first.
-setup.py                   - Run python setup.py [PROJECT_NAME] after cloning starter template to setup the web app
-requirements.txt           - Contains all pip requirements
-Procfile                   - For heroku deployment
-```
+Integrate or build upon it for free in your personal or commercial projects. Don't republish, redistribute or sell "as-is". 
+
+Read more here: [License](http://tympanus.net/codrops/licensing/)
+
+[Dragdealer.js 0.9.7](http://github.com/skidding/dragdealer) by Ovidiu Cherecheș
+
+Images by [Unsplash](http://unsplash.com)
+
+[© Codrops 2014](http://www.codrops.com)
