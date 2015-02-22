@@ -1,18 +1,20 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
+{% block page_title %}DreamBridge{% endblock page_title %}
+
 {% block header_icons %}
     <link rel="shortcut icon" href="">
 {% endblock header_icons %}
-{% block header_fonts %}
-    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:900,400|Lato:300,400,700' rel='stylesheet' type='text/css'>
-{% endblock header_fonts %}
 {% block header_css %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/dragdealer.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/component.css' %}" />
 {% endblock header_css %}
+{% block header_fonts %}
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:900,400|Lato:300,400,700' rel='stylesheet' type='text/css'>
+{% endblock header_fonts %}
 {% block header_js %}
     <script src="{% static 'js/modernizr.custom.js' %}"></script>
 {% endblock header_js %}
@@ -21,7 +23,8 @@
 {% block body %}
 <div class="container">
     <div class="codrops-top clearfix">
-        <span class="right"><a class="" href="#"><span>Sign In</span></a></span>
+        <span class="right"><a class="" href="{% url 'login' %}"><span>Log In</span></a></span>
+        <span class="right"><a class="" href="{% url 'sign_up' %}"><span>Sign Up</span></a></span>
     </div>
     <header id="header" class="codrops-header">
         <!-- <h1>Draggable Dual-View Slideshow</h1> -->
