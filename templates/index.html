@@ -26,7 +26,7 @@
     <header id="header" class="codrops-header">
         <!-- <h1>Draggable Dual-View Slideshow</h1> -->
         <!-- <span class="message">This mobile version does not have the slideshow switch</span> -->
-        <button class="slider-switch">Switch view</button>
+        <button class="slider-switch" id="switch-view">Switch view</button>
     </header>
     <div id="overlay" class="overlay">
         <div class="info">
@@ -41,37 +41,52 @@
         <section class="img-dragger img-dragger-large dragdealer">
             <div class="handle">
                 <div class="slide" data-content="content-1">
-                    <div class="img-wrap"><img src="{% static 'img/1.jpg' %}" alt="img1"/></div>
-                    <h2>Lorem Waldy<span>Distilling design ideas and other interesting topics</span></h2>
+                    <video class="img-wrap" id="bgvid">
+                        <source src="{% static 'img/background.mp4' %}" type="video/mp4">
+                    </video>
+                    <h2>Calvin Giroud
+                    <span class="subject">Electrical & Computer Engineering<br>Carnegie Mellon University</span></h2>
                     <button class="content-switch">Read more</button>
                 </div>
                 <div class="slide" data-content="content-2">
-                    <div class="img-wrap"><img src="{% static 'img/2.jpg' %}" alt="img2"/></div>
+                    <video class="img-wrap" id="bgvid">
+                        <source src="{% static 'img/background.mp4' %}" type="video/mp4">
+                    </video>
                     <h2>Round Table <span>King Arthur's creative team techniques</span></h2>
                     <button class="content-switch">Read more</button>
                 </div>
                 <div class="slide" data-content="content-3">
-                    <div class="img-wrap"><img src="{% static 'img/3.jpg' %}" alt="img3"/></div>
+                    <video class="img-wrap" id="bgvid">
+                        <source src="{% static 'img/background.mp4' %}" type="video/mp4">
+                    </video>
                     <h2>Taking Sneezes <span>Nothing is out there&mdash;let's try again</span></h2>
                     <button class="content-switch">Read more</button>
                 </div>
                 <div class="slide" data-content="content-4">
-                    <div class="img-wrap"><img src="{% static 'img/4.jpg' %}" alt="img4"/></div>
+                    <video class="img-wrap" id="bgvid">
+                        <source src="{% static 'img/background.mp4' %}" type="video/mp4">
+                    </video>
                     <h2>Heavy Talks <span>Heated conversations in the back yard</span></h2>
                     <button class="content-switch">Read more</button>
                 </div>
                 <div class="slide" data-content="content-5">
-                    <div class="img-wrap"><img src="{% static 'img/5.jpg' %}" alt="img5"/></div>
+                    <video class="img-wrap" id="bgvid">
+                        <source src="{% static 'img/background.mp4' %}" type="video/mp4">
+                    </video>
                     <h2>Mountain Sun <span>Crazy nature and other weather ideas</span></h2>
                     <button class="content-switch">Read more</button>
                 </div>
                 <div class="slide" data-content="content-6">
-                    <div class="img-wrap"><img src="{% static 'img/6.jpg' %}" alt="img6"/></div>
+                    <video class="img-wrap" id="bgvid">
+                        <source src="{% static 'img/background.mp4' %}" type="video/mp4">
+                    </video>
                     <h2>Beloved Mother <span>Decomposing fruits and burning houses</span></h2>
                     <button class="content-switch">Read more</button>
                 </div>
                 <div class="slide" data-content="content-7">
-                    <div class="img-wrap"><img src="{% static 'img/7.jpg' %}" alt="img7"/></div>
+                    <video class="img-wrap" id="bgvid">
+                        <source src="{% static 'img/background.mp4' %}" type="video/mp4">
+                    </video>
                     <h2>Kale <i>&amp;</i> Karen <span>Only kale could make her happy</span></h2>
                     <button class="content-switch">Read more</button>
                 </div>
@@ -165,9 +180,18 @@
     <script src="{% static 'js/dragdealer.js' %}"></script>
     <script src="{% static 'js/classie.js' %}"></script>
     <script src="{% static 'js/dragslideshow.js' %}"></script>
+    <script src="{% static 'js/jquery-1.11.2.min.js' %}"></script>
+    <script>
+        $(function() {
+            $("#switch-view").click(function() {
+                $("video").each(function() {
+                    this.pause();
+                });
+            });
+        }());
+    </script>
     <script>
         (function() {
-
             var overlay = document.getElementById( 'overlay' ),
                 overlayClose = overlay.querySelector( 'button' ),
                 header = document.getElementById( 'header' )
