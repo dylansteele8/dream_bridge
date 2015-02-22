@@ -1,6 +1,5 @@
 venv
 *.pyc
-tmp
 public
 
 !tmp/__init__.py
