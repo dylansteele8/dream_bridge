@@ -13,15 +13,18 @@ class UserAdmin(UserAdmin):
     inlines = (ProfileInline, )
 
 class UserDVideoAdmin(admin.ModelAdmin):
-    pass
+    verbose_name_plural = 'User Videos'
 
 class UserDAdmin(admin.ModelAdmin):
+    verbose_name_plural = 'Users'
     pass
 
 class CompanyAdmin(admin.ModelAdmin):
+    verbose_name_plural = 'Companies'
     pass
 
 class JobAdmin(admin.ModelAdmin):
+    verbose_name_plural = 'Jobs'
     pass
 
 admin.site.unregister(User)

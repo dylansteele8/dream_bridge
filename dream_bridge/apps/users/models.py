@@ -39,9 +39,6 @@ class Company(models.Model):
   def __str__(self):
     return self.name
 
-  def name(self):
-    return self.name
-
 
 class Job(models.Model):
 
@@ -57,9 +54,6 @@ class Job(models.Model):
   def __str__(self):
     return self.title
 
-  def name(self):
-    return self.title
-
 
 class UserDVideo(models.Model):
 
@@ -69,6 +63,8 @@ class UserDVideo(models.Model):
     default=""
   )
 
+  def __str__(self):
+    return self.user.name + "-video"
 
 class UserD(models.Model):
 
@@ -87,7 +83,4 @@ class UserD(models.Model):
   languages_known = models.CharField(max_length=999)
 
   def __str__(self):
-    return self.name
-
-  def name(self):
     return self.name

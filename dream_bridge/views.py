@@ -1,9 +1,12 @@
 from django.shortcuts import render
+from dream_bridge.apps.users.models import UserD, UserDVideo, Company, Job
+
 
 # Create your views here.
 
 def home(request):
-    data = {}
+    users = UserD.objects.all()
+    data = {'users': users}
     return render(request, 'index.html', data)
 
 def login(request):
