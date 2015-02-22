@@ -16,6 +16,8 @@ def applicants(request):
 def jobs(request):
     jobs = Job.objects.all()
     data = {'jobs': jobs}
+    # for job in jobs:
+    #     desc_html = job.description
     return render(request, 'jobs.html', data)
 
 def login(request):

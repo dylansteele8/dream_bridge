@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block page_title %}DreamBridge - Applicants{% endblock page_title %}
+{% block page_title %}DreamBridge - Jobs{% endblock page_title %}
 
 {% block header_icons %}
     <link rel="shortcut icon" href="">
@@ -47,13 +47,13 @@
     <div id="slideshow" class="dragslider">
         <section class="img-dragger img-dragger-large dragdealer">
             <div class="handle">
-                {% for applicant in applicants %}
-                    <div class="slide" data-content="content-{{ applicant.id }}">
-                        <video controls loop autobuffer class="img-wrap vid" id="{{ applicant.id }}">
-                            <source src="{{ MEDIA_URL }}{{ applicant.video1 }}" type="video/mp4">
+                {% for job in jobs %}
+                    <div class="slide" data-content="content-{{ job.id }}">
+                        <video controls loop autobuffer class="img-wrap vid" id="{{ job.id }}">
+                            <source src="{{ MEDIA_URL }}{{ job.video }}" type="video/mp4">
                         </video>
-                        <h2 id="name_loc">{{ applicant.name }}
-                        <span class="subject">{{ applicant.major }}<br>{{ applicant.school }}</span></h2>
+                        <h2 id="name_loc">{{ job.company }}
+                        <span class="subject"><br>{{ job.title }}</span></h2>
                         <button class="content-switch">Read more</button>
                     </div>
                 {% endfor %}
@@ -61,10 +61,10 @@
         </section><!-- /img-dragger-->
         <!-- Content section -->
         <section class="pages">
-            {% for applicant in applicants %}
-                <div class="content" data-content="content-{{ applicant.id }}">
-                    <!-- <h2><span></span></h2> -->
-                    <img class="resume" src="{{ MEDIA_URL }}{{ applicant.resume }}">
+            {% for job in jobs %}
+                <div class="content" data-content="content-{{ job.id }}">
+                    <h2>{{ job.company }}<span>{{ job.title }}</span></h2>
+                    {{ job.description|safe }}
                 </div>
             {% endfor %}
         </section>

@@ -140,7 +140,7 @@ button.slider-switch:hover {
 	display: inline-block;
 	position: relative;
 	height: 100%;
-	background: #567076;
+	background: #2c3135;
 	font-size: 16px;
 	white-space: normal;
 	cursor: -webkit-grab; 
@@ -362,11 +362,11 @@ button.content-switch::before {
 	font-family: 'Book Antiqua', Palatino, 'Palatino Linotype', 'Palatino LT STD', Georgia, serif;
 }
 
-.pages .content p:last-child {
+/*.pages .content p:last-child {
 	padding: 5em 1em 8em;
 	text-align: center;
 	font-weight: bold;
-}
+}*/
 
 .js .pages .content h2,
 .js .pages .content p {

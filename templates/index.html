@@ -39,9 +39,9 @@
 
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav navbar-right">
-                <li class="hidden-xs"><a href="{% url 'sign_up' %}">
+                <!-- <li class="hidden-xs"><a href="{% url 'sign_up' %}">
                     <button id="guide" class="btn btn-success">Sign Up</button></a>
-                </li>
+                </li> -->
             </ul>
         </div><!--/.navbar-collapse -->
     </div>
@@ -54,23 +54,13 @@
             <p>Watch. Swipe. Hire.</p>
             <br><br><br><br>
             <div class="row">
-                <button id="login" class="btn btn-success btn-lg col-lg-2 col-lg-offset-4">Login as Applicant</button>
-                <button id="login" class="btn btn-success btn-lg col-lg-2">Login as Recruiter</button>
+                <a href="{% url 'jobs' %}"><button id="login" class="btn btn-success btn-lg col-lg-2 col-lg-offset-4">Explore Jobs</button></a>
+                <a href="{% url 'applicants' %}"><button id="login" class="btn btn-success btn-lg col-lg-2">Explore Applicants</button></a>
             </div>
-            <!-- <p><a class="btn btn-outline btn-lg" href="#">Learn more&raquo;</a></p> -->
         </div>
             <video class="" autoplay loop muted poster="{% static 'img/background.jpg' %}" id="bgvid">
                 <source src="{% static 'img/background.mp4' %}" type="video/mp4">
             </video>
-    </div>
-</div>
-
-<div class="invert site-footer">
-    <div class="padded-left-right layout-container">
-        <p class="copyright">© 2015 Resumideo </p>
-        <div class="action pull-right">
-            <p class="header-three">Satisfy your inner urges.</p>
-        </div>
     </div>
 </div>
 {% endblock %}
