@@ -1,3 +1,53 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block page_title %}DreamBridge{% endblock page_title %}
+
+{% block header_icons %}
+    <link rel="shortcut icon" href="">
+{% endblock header_icons %}
+{% block header_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dragdealer.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/component.css' %}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+{% endblock header_css %}
+{% block header_fonts %}
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:900,400|Lato:300,400,700' rel='stylesheet' type='text/css'>
+{% endblock header_fonts %}
+{% block header_js %}
+    <script src="{% static 'js/modernizr.custom.js' %}"></script>
+{% endblock header_js %}
+
+{% block body %}
+<nav class="navbar navbar-inverse nav-trans">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span> 
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <!-- <img src="{% static 'Native-Icon.svg' %}" height="40px"/> -->
+                <!-- <img src="{% static 'Native-Title.svg' %}" width="100px"/> -->
+            </a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'login' %}">Log In</a></li>
+                <li class="hidden-xs"><a href="{% url 'sign_up' %}">
+                    <button id="guide" class="btn btn-success">Sign Up</button></a>
+                </li>
+            </ul>
+        </div><!--/.navbar-collapse -->
+    </div>
+</nav>
+
 <div class="jumbotron anwell">
     <div id="hero">
         <div class="container text-center" id="title">
@@ -5,9 +55,8 @@
             <p>Unique places to visit from locals in 10+ countries.</p>
             <!-- <p><a class="btn btn-outline btn-lg" href="#">Learn more&raquo;</a></p> -->
         </div>
-        <video class="" autoplay loop muted poster="{% static 'background.jpg' %}" id="bgvid">
-            <source src="{% static 'background.mp4' %}" type="video/mp4">
-            <source src="{% static 'background.webm' %}" type="video/webm">
+        <video class="" autoplay loop muted poster="{% static 'img/background.jpg' %}" id="bgvid">
+            <source src="{% static 'img/background.mp4' %}" type="video/mp4">
         </video>
         <form id="search-form" class="text-center" method="post" action="{% url 'home' %}">
             <div class="container text-center form-group" id="search-bar">
@@ -24,8 +73,6 @@
         </form>
     </div>
 </div>
-
-<div id="map-canvas"></div>
 
 <div class="container">
     <!-- Example row of columns -->
@@ -132,3 +179,4 @@
         </div>
     </div>
 </div>
+{% endblock %}
