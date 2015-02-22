@@ -11,7 +11,9 @@ urlpatterns = patterns('',
 
 # Main URL Patterns
 urlpatterns += patterns('',
-    url(r'^$', 'dream_bridge.views.home'),
+    url(r'^$', 'dream_bridge.views.home', name='home'),
+    url(r'^login/', 'dream_bridge.views.login', name='login'),
+    url(r'^sign-up/', 'dream_bridge.views.sign_up', name='sign_up'),
 )
 
 # Development
