@@ -6,7 +6,7 @@ from dream_bridge.apps.users.models import Applicant, Company, Job
 
 def home(request):
     data = {}
-    return render(requeset, 'index.html', data)
+    return render(request, 'index.html', data)
 
 def applicants(request):
     applicants = Applicant.objects.all()

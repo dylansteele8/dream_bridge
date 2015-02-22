@@ -45,14 +45,14 @@
     <div id="slideshow" class="dragslider">
         <section class="img-dragger img-dragger-large dragdealer">
             <div class="handle">
-                {% for user in users %}
+                {% for applicant in applicants %}
                     <div class="slide" data-content="content-{{ user.id }}">
                         <div class="img-wrap"><img src="{% static 'img/1.jpg' %}" alt="img1"/></div>
                         <!-- <video class="img-wrap" id="bgvid">
                             <source src="{% static 'img/background.mp4' %}" type="video/mp4">
                         </video> -->
-                        <h2>{{ user.name }}
-                        <span class="subject">{{ user.major }}<br>{{ user.school }}</span></h2>
+                        <h2>{{ applicant.name }}
+                        <span class="subject">{{ applicant.major }}<br>{{ applicant.school }}</span></h2>
                         <button class="content-switch">Read more</button>
                     </div>
                 {% endfor %}
@@ -60,10 +60,10 @@
         </section><!-- /img-dragger-->
         <!-- Content section -->
         <section class="pages">
-            {% for user in users %}
+            {% for applicant in users %}
                 <div class="content" data-content="content-{{ user.id }}">
-                    <h2>{{ user.name }}<span>{{ user.description }}</span></h2>
-                    <img src="">
+                    <h2>{{ applicant.name }}<span>{{ applicant.description }}</span></h2>
+                    <img src="{{ applicant.resume }}">
                 </div>
             {% endfor %}
         </section>
