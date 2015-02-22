@@ -363,85 +363,17 @@ label {
     height   : 100%;
     width    : 40%;
 }
-.search-container {
-    position:absolute;
-    width: 60%;
-    padding: 30px 30px 60px 30px;
-    /*margin-bottom: -76px;*/
-    /*right: 30%;*/
-    overflow:scroll;
-    height:100%;
+
+#login {
+  /*  position: absolute;
+    top: 50%;
+    left: calc(50% - 200px);*/
+    z-index: 100;
 }
-.card > img {
-    /*margin-top: 76px;*/
-    width:100%;
-    height:300px;
-}
-figure.card > figcaption > img {
-    width: 40%;
-    height: auto;
-    min-height: 10px;
-    position: absolute;
-    top: 4em;
-    left: 30%;
-    border: 2px solid #E2E2E2;
-    border-radius: 50%;
-}
-.card {
-    background-color: white;
-    margin-bottom:20px;
-}
-.date-container {
-    margin-top: 20px;
-    padding-left: 15px;
-}
-.price {
-    background-color: rgba(51,51,51,0.9);
-    position: absolute;
-    top: -2.9em;
-    padding: 0 20px;
-    width: 60%;
-    height: 40px;
-    color: #FFFFFF;
-}
-.rating {
-    margin-left: 20px;
-    margin-right: 10px;
-    color: #f0ad4e;
-}
-.user-info {
-    text-align: center;
-    margin-top: 20px;
-}
-#cities input {
-    width:650px;
-    height:46px;
-    margin-top:4px;
-    border-top-left-radius:6px;
-    border-bottom-left-radius:6px;
-}
-a.card {
-    color: inherit;
-    text-decoration: none;
-}
-.profile-cover {
-    margin-bottom: 0px;
-    height:400px;
-    background-position: left bottom;
-    background-size: cover;
-    -webkit-filter: brightness(0.7);
-    -moz-filter: brightness(0.7);
-    -o-filter: brightness(0.7);
-    filter: brightness(0.7);
-}
-#map-canvas {
-    display: none;
-}
-#locationField, #controls {
-    position: relative;
-}
-#autocomplete {
-    height: 46px;
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
+
+#login_recruiter {
+    /*position: absolute;
+    top: 50%;
+    right: calc(50% - 200px);*/
+    z-index: 100;
 }

@@ -39,7 +39,6 @@
 
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'login' %}">Log In</a></li>
                 <li class="hidden-xs"><a href="{% url 'sign_up' %}">
                     <button id="guide" class="btn btn-success">Sign Up</button></a>
                 </li>
@@ -47,129 +46,23 @@
         </div><!--/.navbar-collapse -->
     </div>
 </nav>
-
 <div class="jumbotron anwell">
     <div id="hero">
         <div class="container text-center" id="title">
-            <h1 class="text-uppercase">Explore Like a Local</h1>
+            <h1 class="text-uppercase">Resuvideo</h1>
             <p>Unique places to visit from locals in 10+ countries.</p>
+            <br><br><br><br>
+            <div class="row">
+                <button id="login" class="btn btn-success btn-lg col-lg-2 col-lg-offset-1">Login as Applicant</button>
+                <button id="login_recruiter" class="btn btn-success btn-lg col-lg-2">Login as Recruiter</button>
+            </div>
             <!-- <p><a class="btn btn-outline btn-lg" href="#">Learn more&raquo;</a></p> -->
         </div>
-        <video class="" autoplay loop muted poster="{% static 'img/background.jpg' %}" id="bgvid">
-            <source src="{% static 'img/background.mp4' %}" type="video/mp4">
-        </video>
-        <form id="search-form" class="text-center" method="post" action="{% url 'home' %}">
-            <div class="container text-center form-group" id="search-bar">
-                {% csrf_token %}
-                <div class="input-group input-group-lg">
-                    <div id="cities locationField">
-                        <input type="text" name="main-search" class="form-control typeahead" id="autocomplete" placeholder="Where do you want to explore?">
-                    </div>
-                    <span class="input-group-btn">
-                        <button type="submit" class="btn btn-warning" type="button">Lets go!</button>
-                    </span>
-                </div>
-            </div>
-        </form>
+            <video class="" autoplay loop muted poster="{% static 'img/background.jpg' %}" id="bgvid">
+                <source src="{% static 'img/background.mp4' %}" type="video/mp4">
+            </video>
     </div>
 </div>
-
-<div class="container">
-    <!-- Example row of columns -->
-    <h1 style="text-align: center;">Featured Locals</h1>
-    <div class="row grid">
-        <div class="col-md-4">
-            <figure class="effect-bubba">
-                <img src="http://paulchun.com/native/xiaozhou/xiaozhou-cover-small.jpg" alt="xiaozhou"/>
-                <figcaption>
-                    <h2>Xiao Zhou</h2>
-                    <p>Taipei, Taiwan</p>
-                    <a href="/user/xiaozhou">View more</a>
-                    <img class="profile-pic" src="http://paulchun.com/native/xiaozhou/xiaozhou-head.jpg" alt="xiaozhou"/>
-                </figcaption>           
-            </figure>
-        </div>
-        <div class="col-md-4">
-            <figure class="effect-bubba">
-                <img src="http://paulchun.com/native/arianaventi/arianaventi-cover-small.jpg" alt="arianaventi"/>
-                <figcaption>
-                    <h2>Ariana Venti</h2>
-                    <p>Venice, Italy</p>
-                    <a href="/user/arianaventi">View more</a>
-                    <img class="profile-pic" src="http://paulchun.com/native/arianaventi/arianaventi-head.png" alt="arianaventi"/>
-                </figcaption>           
-            </figure>
-        </div>
-        <div class="col-md-4">
-            <figure class="effect-bubba">
-                <img src="http://paulchun.com/native/henriyonck/henriyonck-cover-small.jpg" alt="Henri Yonck Action"/>
-                <figcaption>
-                    <h2>Henri Yonck</h2>
-                    <p>Bruges, Belgium</p>
-                    <a href="/user/henriyonck">View more</a>
-                    <img class="profile-pic" src="http://paulchun.com/native/henriyonck/henriyonck-head.png" alt="Henry Yonck Head"/>
-                </figcaption>           
-            </figure>
-        </div>
-    </div>
-
-    <h1 style="text-align: center;">Featured Cities</h1>
-    <div class="row grid">
-        <div class="col-md-8">
-            <figure class="effect-bubba">
-                <img src="{% static 'city-images/amsterdam.jpg' %}" alt="amsterdam"/>
-                <figcaption>
-                    <h2>AMSTERDAM</h2>
-                    <p>Bike the alleyways and backstreets</p>
-                    <a href="/search/Amsterdam">View more</a>
-                </figcaption>           
-            </figure>
-        </div>
-        <div class="col-md-4">
-            <figure class="effect-bubba">
-                <img src="{% static 'city-images/barcelona.jpg' %}" alt="barcelona"/>
-                <figcaption>
-                    <h2>Barcelona</h2>
-                    <p>Play soccer with locals</p>
-                    <a href="/search/Barcelona">View more</a>
-                </figcaption>           
-            </figure>
-        </div>
-    </div>
-    <div class="row grid">
-        <div class="col-md-4">
-            <figure class="effect-bubba">
-                <img src="{% static 'city-images/athens.jpg' %}" alt="athens"/>
-                <figcaption>
-                    <h2>ATHENS</h2>
-                    <p>Art in Athens</p>
-                    <a href="/search/Athens">View more</a>
-                </figcaption>           
-            </figure>
-        </div>
-        <div class="col-md-4">
-            <figure class="effect-bubba">
-                <img src="{% static 'city-images/bruges.jpg' %}" alt="brüges"/>
-                <figcaption>
-                    <h2>Bruges</h2>
-                    <p>Belgian night life</p>
-                    <a href="/search/Bruges">View more</a>
-                </figcaption>           
-            </figure>
-        </div>
-        <div class="col-md-4">
-            <figure class="effect-bubba">
-                <img src="{% static 'city-images/san-antonio.jpg' %}" alt="san antonio"/>
-                <figcaption>
-                    <h2>San Antonio</h2>
-                    <p>Stroll beyond the River Walk</p>
-                    <a href="/search/San Antonio">View more</a>
-                    
-                </figcaption>           
-            </figure>
-        </div>
-    </div>
-</div> <!-- /container -->
 
 <div class="invert site-footer">
     <div class="padded-left-right layout-container">
