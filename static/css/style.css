@@ -365,15 +365,13 @@ label {
 }
 
 #login {
-  /*  position: absolute;
-    top: 50%;
-    left: calc(50% - 200px);*/
     z-index: 100;
+    margin-right: 10px;
 }
 
-#login_recruiter {
-    /*position: absolute;
-    top: 50%;
-    right: calc(50% - 200px);*/
+#name_loc {
+    position: absolute;
     z-index: 100;
+    top: 40%;
+    left: 10%;
 }

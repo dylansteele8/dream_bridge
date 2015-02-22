@@ -342,3 +342,10 @@ video#bgvid {
     -ms-filter: brightness(60%);
     filter: brightness(60%);
 }
+
+#name_loc {
+    position: absolute;
+    z-index: 100;
+    top: 80%;
+    left: 10%;
+}
