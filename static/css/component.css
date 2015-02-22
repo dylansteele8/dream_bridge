@@ -167,16 +167,11 @@ button.slider-switch:hover {
 
 .img-wrap {
 	position: absolute;
-	width: 100%;
+	min-width: 100%; 
+	min-height: 100%;
 	height: 100%;
 	overflow: hidden;
 }
-
-.img-wrap img {
-	position: absolute;
-	display: block;
-	height: calc(100% + 0.2px);
-	opacity: 0.5;
 }
 
 @media screen and (min-aspect-ratio: 1280/850) {
@@ -282,7 +277,7 @@ button.content-switch::before {
 	position: absolute;
 	width: 100%;
 	height: 50%;
-	left: 50%;
+	left: 0;
 	text-indent: 0;
 	font-size: 1.5em;
 	line-height: 0.75;
@@ -455,4 +450,42 @@ button.content-switch::before {
 	button.slider-switch {
 		display: none;
 	}
+}
+
+.resume {
+	margin-top: 40px;
+}
+
+.action-btn {
+	border: 2px solid #fff;
+	overflow: hidden;
+	white-space: nowrap;
+	background: transparent;
+	color: #fff;
+	font-family: 'Lato', sans-serif;
+	position: absolute;
+	cursor: pointer;
+	font-size: 24px;
+	line-height: 1;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 400;
+	outline: none;
+	z-index: 1000;
+	opacity: 0.7;
+	height: 70px;
+	width: 70px;
+	border-radius: 50%;
+	-webkit-transition: -webkit-transform 0.6s cubic-bezier(.7,0,.3,1), opacity 0.3s, color 0.3s, border-color 0.3s;
+	transition: transform 0.6s cubic-bezier(.7,0,.3,1), opacity 0.3s, color 0.3s, border-color 0.3s;
+}
+
+#reject {
+	top: 40%;
+	left: 10%;
+}
+
+#accept {
+	top: 40%;
+	right: 10%;
 }

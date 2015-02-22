@@ -31,6 +31,10 @@
         <!-- <span class="message">This mobile version does not have the slideshow switch</span> -->
         <button class="slider-switch" id="switch-view">Switch view</button>
     </header>
+    <div id="action" class="action-btns">
+        <button class="action-btn reject-btn" id="reject">x</button>
+        <button class="action-btn accept-btn" id="accept">+</button>
+    </div>
     <div id="overlay" class="overlay">
         <div class="info">
             <h2>Demo interactions</h2>
@@ -46,7 +50,7 @@
                 {% for applicant in applicants %}
                     <div class="slide" data-content="content-{{ applicant.id }}">
                         <div class="img-wrap"><img src="{% static 'img/1.jpg' %}" alt="img1"/></div>
-                        <video class="img-wrap" id="{{ applicant.id }}">
+                        <video controls loop autobuffer class="img-wrap vid" id="{{ applicant.id }}">
                             <source src="{{ MEDIA_URL }}{{ applicant.video1 }}" type="video/mp4">
                         </video>
                         <h2 id="name_loc">{{ applicant.name }}
@@ -61,7 +65,7 @@
             {% for applicant in applicants %}
                 <div class="content" data-content="content-{{ applicant.id }}">
                     <!-- <h2><span></span></h2> -->
-                    <img src="{{ MEDIA_URL }}{{ applicant.resume }}">
+                    <img class="resume" src="{{ MEDIA_URL }}{{ applicant.resume }}">
                 </div>
             {% endfor %}
         </section>
@@ -74,6 +78,22 @@
     <script src="{% static 'js/classie.js' %}"></script>
     <script src="{% static 'js/dragslideshow.js' %}"></script>
     <script>
+        $(function() {
+            $("#accept").click(function() {
+                if ($( this ).html() === '✓') {
+                    $( this ).html('+');
+                } else {
+                $( this ).html('&#10003;');
+                }
+            });
+        });
+        $(function() {
+            $("#reject").click(function() {
+                $(".current").remove()
+            });
+        });
+    </script>
+    <script>
         (function() {
             var overlay = document.getElementById( 'overlay' ),
                 overlayClose = overlay.querySelector( 'button' ),
@@ -81,13 +101,16 @@
                 switchBtnn = header.querySelector( 'button.slider-switch' ),
                 toggleBtnn = function() {
                     if( slideshow.isFullscreen ) {
-                        var videos = document.getElementsByTagName("video");
-                        for (video in videos) {
-                            video.pause();
+                        var videos = document.getElementsByClassName("vid");
+                        for (var i = 0; i < videos.length; i++) {
+                            videos[i].pause();
                         };
                         classie.add( switchBtnn, 'view-maxi' );
                     }
                     else {
+                        var video_container = document.getElementsByClassName("current")
+                        var video = video_container[0].getElementsByTagName("video");
+                        video[0].play();
                         classie.remove( switchBtnn, 'view-maxi' );
                     }
                 },
