@@ -43,9 +43,8 @@ class Company(models.Model):
 class Job(models.Model):
 
   title = models.CharField(max_length=99)
-  company = models.OneToOneField(Company)
+  company = models.ForeignKey('Company')
   location = models.CharField(max_length=99)
-  interested_users = models.ManyToManyField(User)
   video = models.FileField(
     upload_to=lambda i, filename: os.path.join('job-videos', "%s.%s" % (uuid.uuid4(), filename.split('.')[-1])),
     default=""
@@ -55,32 +54,33 @@ class Job(models.Model):
     return self.title
 
 
-class UserDVideo(models.Model):
-
-  user = models.ForeignKey('UserD')
-  video = models.FileField(
-    upload_to=lambda i, filename: os.path.join('user-videos', "%s.%s" % (uuid.uuid4(), filename.split('.')[-1])),
-    default=""
-  )
-
-  def __str__(self):
-    return self.user.name + "-video"
-
-class UserD(models.Model):
+class Applicant(models.Model):
 
   name = models.CharField(max_length=99)
   email = models.CharField(max_length=99)
   school = models.CharField(max_length=99)
   gpa = models.CharField(max_length=4)
   major = models.CharField(max_length=99)
-  interested_jobs = models.ManyToManyField(Job)
+  jobs_interested_in = models.ManyToManyField(Job, default="", blank=True)
   resume = models.ImageField(
     upload_to=lambda i, filename: os.path.join('resume', "%s.%s" % (uuid.uuid4(), filename.split('.')[-1])),
     blank=True,
     default=""
   )
   description = models.CharField(max_length=999)
-  languages_known = models.CharField(max_length=999)
+  languages_known = models.CharField(max_length=999, blank=True)
+  video1 = models.FileField(
+    upload_to=lambda i, filename: os.path.join('applicant-videos', "%s.%s" % (uuid.uuid4(), filename.split('.')[-1])),
+    default=""
+  )
+  video2 = models.FileField(
+    upload_to=lambda i, filename: os.path.join('applicant-videos', "%s.%s" % (uuid.uuid4(), filename.split('.')[-1])),
+    default="", blank=True
+  )
+  video3 = models.FileField(
+    upload_to=lambda i, filename: os.path.join('applicant-videos', "%s.%s" % (uuid.uuid4(), filename.split('.')[-1])),
+    default="", blank=True
+  )
 
   def __str__(self):
     return self.name

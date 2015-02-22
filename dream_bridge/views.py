@@ -1,13 +1,22 @@
 from django.shortcuts import render
-from dream_bridge.apps.users.models import UserD, UserDVideo, Company, Job
+from dream_bridge.apps.users.models import Applicant, Company, Job
 
 
 # Create your views here.
 
 def home(request):
-    users = UserD.objects.all()
-    data = {'users': users}
-    return render(request, 'index.html', data)
+    data = {}
+    return render(requeset, 'index.html', data)
+
+def applicants(request):
+    applicants = Applicant.objects.all()
+    data = {'applicants': applicants}
+    return render(request, 'applicants.html', data)
+
+def jobs(request):
+    jobs = Job.objects.all()
+    data = {'jobs': jobs}
+    return render(request, 'jobs.html', data)
 
 def login(request):
     data = {}

@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 
-from models import Profile, Job, UserD, UserDVideo, Company
+from models import Profile, Job, Applicant, Company
 
 class ProfileInline(admin.StackedInline):
     model = Profile
@@ -12,11 +12,8 @@ class ProfileInline(admin.StackedInline):
 class UserAdmin(UserAdmin):
     inlines = (ProfileInline, )
 
-class UserDVideoAdmin(admin.ModelAdmin):
-    verbose_name_plural = 'User Videos'
-
-class UserDAdmin(admin.ModelAdmin):
-    verbose_name_plural = 'Users'
+class ApplicantAdmin(admin.ModelAdmin):
+    verbose_name_plural = 'Applicants'
     pass
 
 class CompanyAdmin(admin.ModelAdmin):
@@ -30,8 +27,7 @@ class JobAdmin(admin.ModelAdmin):
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 
-admin.site.register(UserDVideo, UserDVideoAdmin)
-admin.site.register(UserD, UserDAdmin)
+admin.site.register(Applicant, ApplicantAdmin)
 admin.site.register(Company, CompanyAdmin)
 admin.site.register(Job, JobAdmin)
 
