@@ -14,6 +14,8 @@ urlpatterns += patterns('',
     url(r'^$', 'dream_bridge.views.home', name='home'),
     url(r'^login/', 'dream_bridge.views.login', name='login'),
     url(r'^sign-up/', 'dream_bridge.views.sign_up', name='sign_up'),
+    url(r'^applicants/', 'dream_bridge.views.applicants', name='applicants'),
+    url(r'^jobs/', 'dream_bridge.views.jobs', name='jobs'),
 )
 
 # Development

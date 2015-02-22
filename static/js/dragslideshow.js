@@ -267,6 +267,9 @@
 		classie.remove( this.slides[ this.current || 0 ], 'current' );
 		this.current = this.dd.getStep()[0] - 1;
 		classie.add( this.slides[ this.current ], 'current' );
+		var video_container = document.getElementsByClassName("current")
+		var video = video_container[0].getElementsByTagName("video");
+		video[0].play();
 	}
 
 	/**

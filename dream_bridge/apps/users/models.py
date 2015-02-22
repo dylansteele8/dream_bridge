@@ -45,6 +45,7 @@ class Job(models.Model):
   title = models.CharField(max_length=99)
   company = models.ForeignKey('Company')
   location = models.CharField(max_length=99)
+  description = models.TextField(default="")
   video = models.FileField(
     upload_to=lambda i, filename: os.path.join('job-videos', "%s.%s" % (uuid.uuid4(), filename.split('.')[-1])),
     default=""
@@ -67,7 +68,7 @@ class Applicant(models.Model):
     blank=True,
     default=""
   )
-  description = models.CharField(max_length=999)
+  description = models.TextField(max_length=999)
   languages_known = models.CharField(max_length=999, blank=True)
   video1 = models.FileField(
     upload_to=lambda i, filename: os.path.join('applicant-videos', "%s.%s" % (uuid.uuid4(), filename.split('.')[-1])),

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block page_title %}DreamBridge{% endblock page_title %}
+{% block page_title %}DreamBridge - Applicants{% endblock page_title %}
 
 {% block header_icons %}
     <link rel="shortcut icon" href="">
@@ -11,8 +11,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/dragdealer.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/component.css' %}" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
 {% endblock header_css %}
 {% block header_fonts %}
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display:900,400|Lato:300,400,700' rel='stylesheet' type='text/css'>
@@ -25,8 +23,8 @@
 {% block body %}
 <div class="container">
     <div class="codrops-top clearfix">
-        <span class="right"><a class="" href="{% url 'login' %}"><span>Log In</span></a></span>
-        <span class="right"><a class="" href="{% url 'sign_up' %}"><span>Sign Up</span></a></span>
+        <!-- <span class="right"><a class="" href="{% url 'login' %}"><span>Log In</span></a></span>
+        <span class="right"><a class="" href="{% url 'sign_up' %}"><span>Sign Up</span></a></span> -->
     </div>
     <header id="header" class="codrops-header">
         <!-- <h1>Draggable Dual-View Slideshow</h1> -->
@@ -46,11 +44,11 @@
         <section class="img-dragger img-dragger-large dragdealer">
             <div class="handle">
                 {% for applicant in applicants %}
-                    <div class="slide" data-content="content-{{ user.id }}">
+                    <div class="slide" data-content="content-{{ applicant.id }}">
                         <div class="img-wrap"><img src="{% static 'img/1.jpg' %}" alt="img1"/></div>
-                        <!-- <video class="img-wrap" id="bgvid">
-                            <source src="{% static 'img/background.mp4' %}" type="video/mp4">
-                        </video> -->
+                        <video class="img-wrap" id="{{ applicant.id }}">
+                            <source src="{{ MEDIA_URL }}{{ applicant.video1 }}" type="video/mp4">
+                        </video>
                         <h2>{{ applicant.name }}
                         <span class="subject">{{ applicant.major }}<br>{{ applicant.school }}</span></h2>
                         <button class="content-switch">Read more</button>
@@ -60,10 +58,10 @@
         </section><!-- /img-dragger-->
         <!-- Content section -->
         <section class="pages">
-            {% for applicant in users %}
-                <div class="content" data-content="content-{{ user.id }}">
-                    <h2>{{ applicant.name }}<span>{{ applicant.description }}</span></h2>
-                    <img src="{{ applicant.resume }}">
+            {% for applicant in applicants %}
+                <div class="content" data-content="content-{{ applicant.id }}">
+                    <!-- <h2><span></span></h2> -->
+                    <img src="{{ MEDIA_URL }}{{ applicant.resume }}">
                 </div>
             {% endfor %}
         </section>
@@ -71,19 +69,10 @@
 </div><!-- /container -->
 {% endblock body %} 
 {% block footer_js %}
+    <script src="{% static 'js/jquery-1.11.2.min.js' %}"></script>
     <script src="{% static 'js/dragdealer.js' %}"></script>
     <script src="{% static 'js/classie.js' %}"></script>
     <script src="{% static 'js/dragslideshow.js' %}"></script>
-    <script src="{% static 'js/jquery-1.11.2.min.js' %}"></script>
-    <script>
-        $(function() {
-            $("#switch-view").click(function() {
-                $("video").each(function() {
-                    this.pause();
-                });
-            });
-        }());
-    </script>
     <script>
         (function() {
             var overlay = document.getElementById( 'overlay' ),
@@ -92,6 +81,10 @@
                 switchBtnn = header.querySelector( 'button.slider-switch' ),
                 toggleBtnn = function() {
                     if( slideshow.isFullscreen ) {
+                        var videos = document.getElementsByTagName("video");
+                        for (video in videos) {
+                            video.pause();
+                        };
                         classie.add( switchBtnn, 'view-maxi' );
                     }
                     else {
@@ -122,6 +115,9 @@
                 },
                 closeOverlay = function() {
                     classie.add( overlay, 'hide' );
+                    var video_container = document.getElementsByClassName("current")
+                    var video = video_container[0].getElementsByTagName("video");
+                    video[0].play();
                 };
 
             // toggle between fullscreen and small slideshow
